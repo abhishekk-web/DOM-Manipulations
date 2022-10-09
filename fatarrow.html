@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+class Student{
+    static count = 0;
+    constructor(name, age, marks, phone){
+
+        this.name = name;
+        this.age = age;
+        this.marks = marks;
+        this.phone = phone;
+        
+        Student.countStudent();
+        
+    }
+
+    static countStudent(){
+
+        
+
+        return(Student.count++);    
+
+    }    
+
+//     check(){
+
+//         if(this.marks>=40){
+
+//             console.log("Student is eligible");
+
+//         }
+//         else if(this.marks<40){
+//             console.log("student is not eligible");
+//         }
+
+//     }
+    
+
+// }
+
+    Placement(totAge){
+
+        return (totmarks)=>{
+
+            if(this.marks >= totmarks && this.age >= totAge){
+
+                console.log("Eligiile");
+
+            }
+            else{
+
+                console.log("Not eligible");
+
+            }
+
+        }
+
+    }
+
+}
+
+
+
+// let student1 = new Student('abc', 10, 50);
+// let student2 = new Student('def', 20, 60);
+// let student3 = new Student('ghi', 30, 20);
+// let student4 = new Student('jkl', 40, 10);
+// let student5 = new Student('mno', 50, 80);
+// console.log(Student.countStudent());
+
+// student1.check();
+// student2.check();
+// student3.check();
+// student4.check();
+// student5.check();
+
+let student1 = new Student('abc', 10, 50);
+let student2 = new Student('def', 20, 60);
+let student3 = new Student('ghi', 30, 20);
+let student4 = new Student('jkl', 40, 10);
+let student5 = new Student('mno', 50, 80);
+
+student1.Placement(20)(40);
+student2.Placement(20)(40);
+student3.Placement(20)(40);
+student4.Placement(20)(40);
+student5.Placement(20)(40);
+
+
+
+
+    </script>
+
+</body>
+</html>
