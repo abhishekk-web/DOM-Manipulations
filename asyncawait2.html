@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async await</title>
+</head>
+
+<body>
+    <script>
+
+        const posts = [
+
+            { title: 'Post One', body: 'This is post one' },
+            { title: 'Post two', body: 'This is post two' }
+
+        ]
+
+
+        //get post function
+
+        function getPosts() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+
+                    let output = '';
+                    for (let i = 0; i < posts.length; i++) {
+                        // posts.forEach((post, index)=> {
+
+                        output += `<li>${posts[i].title}</li>`;
+
+                    };
+                    document.body.innerHTML = output;
+                },
+                    2000)
+
+            });
+        }
+
+        // create post function
+
+        var createPost = async function (post) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+
+                    posts.push(post);
+                    const error = false;
+
+                    if (!error) {
+                        resolve()
+                    }
+                    else {
+                        reject();
+                    }
+                }, 2000)
+            })
+        }
+
+
+        // delete Post function
+        function deletePost() {
+            return new Promise((resolve, reject) => (
+                setTimeout(() => {
+                    console.log("CHEck");
+                    if (posts.length > 0) {
+                        posts.pop();
+                        resolve();
+                        console.log("deleting", posts);
+                    }
+                    else {
+                        reject();
+                    }
+
+                }, 1000)
+            ))
+        }
+
+
+
+
+
+        async function func1() {
+
+            const creates = await createPost({ title: 'Post three', body: 'This is post three' });
+            console.log(creates);
+            const get = await getPosts();
+            console.log(get);
+            const deletes = await deletePost();
+            console.log(deletes);
+            await getPosts();
+
+        }
+
+        func1();
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
